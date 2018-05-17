@@ -1,0 +1,44 @@
+<ion-header height="86px">
+    <ion-toolbar>
+        <ion-title>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="navBar" overflow-scroll="true">
+    <ion-scroll #scroll scrollX style="height:30px;" scrollbar-x="false">
+        <ng-container *ngFor="let key of sectionKeys">
+            <div  *ngIf="key != sectionKey" class="scroll-item" (click)="goToOtherSection(key)">
+                <font size="3">{{sectionJSON[key].section}}</font>
+            </div>
+            <div #sectionInUse *ngIf="key == sectionKey" class="scroll-item-active">
+                <b><font size="4">{{sectionJSON[key].section}}</font></b>
+            </div>
+        </ng-container>
+    </ion-scroll>
+</ion-content>
+    
+<ion-content class = "itemPage">
+    <ion-list>
+        <ion-card *ngFor="let key of itemKeys">
+            <ion-card-header>
+                <b class="titleA">
+                    <font size="4">{{items[key].title}}</font>
+                </b>
+
+                <p class="price">
+                        {{items[key].price}}
+                </p>
+            </ion-card-header>
+            <ion-slides *ngIf="items[key].photos && items[key].photos.length > 1" pager>
+                <ion-slide *ngFor="let post of items[key].photos">
+                    <img style="width: 100" [src]="post.image" />
+                </ion-slide>
+            </ion-slides>
+            <ion-card-content>
+                {{items[key].description}}
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+</ion-content>
+      

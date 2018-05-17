@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Massimo profuma di rosa</ion-title>
+    </ion-navbar>
+</ion-header>
+      
+<ion-content>
+      
+    <ion-list>
+        <a ion-item *ngFor="let post of posts; let i = index" (click)="openRestaurant(i)">
+            {{post.name}}
+        </a>
+    </ion-list>
+      
+</ion-content>

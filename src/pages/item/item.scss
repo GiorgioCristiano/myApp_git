@@ -1,0 +1,66 @@
+page-item{
+
+    .navBar{
+        background: #f0f0f5;
+
+        ion-scroll[scrollX] {
+            top: 10px;
+            white-space: nowrap;
+        }
+
+        .scroll-item {
+            padding-right: 10px;
+            padding-left: 10px;
+            display: inline-block;
+            color: #adadad;
+        }
+        
+        .scroll-item-active{
+            padding-right: 10px;
+            padding-left: 10px;
+            display: inline-block;
+            color: #000000;
+        }
+    }
+
+
+    .itemPage{
+
+        top:40px;
+
+        ion-card{
+            background-color: white;
+            position: relative;
+            text-align: left;
+        }
+
+        ion-content{
+            background-color: #f0f0f5;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+        }
+
+        .titleA{
+            width: 75%;
+            float: 'left'
+        }
+
+        .price{ 
+            float:right
+        }
+
+        .swiper-pagination {
+            
+            .swiper-pagination-bullet{
+                background:  #273746;
+                opacity: 0.7;
+            }
+            .swiper-pagination-bullet-active {
+                background: #f0f0f5;
+                opacity: 1;
+            }
+        }
+    }
+}

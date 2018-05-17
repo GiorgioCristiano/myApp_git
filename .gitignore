@@ -1,0 +1,8 @@
+node_modules/
+resources/
+plugins/
+www/
+/*.json
+/*.xml
+/.firebaserc
+/.editorconfig

@@ -1,0 +1,19 @@
+page-menu{
+    ion-card {
+        position: relative;
+        text-align: left;
+      } 
+
+      .swiper-slide img {
+        width: 100%;
+    }
+
+    .title{
+        width: 75%;
+        float: 'left'
+    }
+
+    .price{
+        float:right
+    }
+}
