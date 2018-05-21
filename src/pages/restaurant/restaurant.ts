@@ -13,6 +13,7 @@ export class RestaurantPage {
 
     name: any;
     menuJSON: any;
+    restaurantKey: { menuJSON: any; };
 
     constructor(public platform: Platform,
                 public params: NavParams,
@@ -22,7 +23,8 @@ export class RestaurantPage {
         
         console.log(this.params);
         this.name = this.params.get('restaurantJSON').name;
-        this.menuJSON = {menuJSON: this.params.get('restaurantJSON').menu_with_photo};
+        //this.menuJSON = {menuJSON: this.params.get('restaurantJSON').menu_with_photo};
+        this.menuJSON = {menuJSON: this.params.get('restaurantJSON').menu_with_photo,restaurantKey : this.params.get('restaurantJSON').$key};
         console.log(this.menuJSON);
 
     }

@@ -10,6 +10,8 @@ import { HomePage } from '../pages/home/home';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
 import {ItemPage} from '../pages/item/item';
 import {MenuPage} from '../pages/menu/menu';
+import {PopoverPage} from '../pages/PopoverPage/PopoverPage';
+ 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +29,8 @@ import {FIREBASE_CONFIG} from './firebase.credentials';
     HomePage,
     ItemPage,
     MenuPage,
-    RestaurantPage
+    RestaurantPage,
+    PopoverPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import {FIREBASE_CONFIG} from './firebase.credentials';
     HomePage,
     ItemPage,
     MenuPage,
-    RestaurantPage
+    RestaurantPage,
+    PopoverPage
   ],
   providers: [
     StatusBar,
