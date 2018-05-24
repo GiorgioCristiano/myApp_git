@@ -1,32 +1,44 @@
 page-item{
 
     .navBar{
-        background: #f0f0f5;
-
+        top: 56px;
+        background: #cce6ff;
         ion-scroll[scrollX] {
             top: 10px;
             white-space: nowrap;
         }
 
         .scroll-item {
+            border-radius: 10px;
+            border: 1.5px solid white;
             padding-right: 10px;
             padding-left: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
             display: inline-block;
-            color: #adadad;
+            color: white;
         }
         
         .scroll-item-active{
+            
+            border-radius: 10px;
+            border: 1.5px solid #000000;
             padding-right: 10px;
             padding-left: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
             display: inline-block;
             color: #000000;
         }
+        
     }
 
 
     .itemPage{
 
-        top:40px;
+        top: 96px;
+
+        background: #cce6ff;
 
         ion-card{
             background-color: white;
@@ -35,7 +47,7 @@ page-item{
         }
 
         ion-content{
-            background-color: #f0f0f5;
+            background-color: #cce6ff;
         }
 
         .swiper-slide img {
