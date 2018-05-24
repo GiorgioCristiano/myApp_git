@@ -34,8 +34,8 @@ export class RestaurantPage {
         this.viewCtrl.dismiss();
     }    
 
-  tab1Root = AboutPage;
+  tab1Root = MenuPage;
   tab2Root = ContactPage;
-  tab3Root = MenuPage;
+  tab3Root = AboutPage;
 //   tab3Root = this.navCtrl.setRoot (MenuPage, {menuJSON: this.params.get('restaurantJSON').menu_with_photo});
 }

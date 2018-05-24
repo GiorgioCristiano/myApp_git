@@ -38,6 +38,10 @@ export class ItemPage {
         if(this.items != null){ 
             this.itemKeys = Object.keys(this.items);
             this.section = this.allItems.section;
+            // this.items.photoKeys = [];
+            // if(this.items.photos != null){
+            //     this.items.photoKeys = Object.keys(this.items.photos);
+            // }
         }else{
             this.allItems = null;
             this.items = null;
@@ -46,7 +50,7 @@ export class ItemPage {
         }
         console.log(this.sectionKey);
         console.log(this.allItems);
-        console.log(this.actualScrollLeft);
+        console.log(this.items);
 
     }
 
@@ -57,7 +61,7 @@ export class ItemPage {
     }
 
     dismiss(){
-        this.viewCtrl.dismiss();
+        this.navCtrl.pop();
     }
 
     ngAfterViewInit() {

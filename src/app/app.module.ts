@@ -21,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireModule, FirebaseAppProvider } from 'angularfire2';
 import {FIREBASE_CONFIG} from './firebase.credentials';
+import { DataProvider } from '../providers/data/data';
 @NgModule({
   declarations: [
     MyApp,
@@ -54,7 +55,8 @@ import {FIREBASE_CONFIG} from './firebase.credentials';
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    DataProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}

@@ -20,23 +20,28 @@
     
 <ion-content class = "itemPage">
     <ion-list>
-        <ion-card *ngFor="let key of itemKeys">
+        <ion-card *ngFor="let itemKey of itemKeys">
             <ion-card-header>
                 <b class="titleA">
-                    <font size="4">{{items[key].title}}</font>
+                    <font size="4">{{items[itemKey].title}}</font>
                 </b>
 
                 <p class="price">
-                        {{items[key].price}}
+                        {{items[itemKey].price}}
                 </p>
             </ion-card-header>
-            <ion-slides *ngIf="items[key].photos && items[key].photos.length > 1" pager>
-                <ion-slide *ngFor="let post of items[key].photos">
-                    <img style="width: 100" [src]="post.image" />
+            <ion-slides *ngIf="items[itemKey].photoKeys && items[itemKey].photoKeys.length > 1" pager>
+                <ion-slide *ngFor="let photoKey of items[itemKey].photoKeys">
+                    <img style="width: 100" [src]="items[itemKey].photos[photoKey].image" />
                 </ion-slide>
             </ion-slides>
-            <ion-card-content>
-                {{items[key].description}}
+            <ion-slides *ngIf="items[itemKey].photoKeys && items[itemKey].photoKeys.length == 1">
+                <ion-slide *ngFor="let photoKey of items[itemKey].photoKeys">
+                    <img style="width: 100" [src]="items[itemKey].photos[photoKey].image" />
+                </ion-slide>
+            </ion-slides>
+            <ion-card-content *ngIf="items[itemKey].description">
+                {{items[itemKey].description}}
             </ion-card-content>
         </ion-card>
     </ion-list>

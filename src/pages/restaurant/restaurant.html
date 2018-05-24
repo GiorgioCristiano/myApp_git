@@ -13,8 +13,8 @@
 </ion-header>
 
 
-<ion-tabs>
-  <ion-tab [root]="tab1Root" [rootParams]="menuJSON" tabTitle="About" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
-  <ion-tab [root]="tab3Root" [rootParams]="menuJSON" tabTitle="Menu" tabIcon="contacts"></ion-tab>
+<ion-tabs selectedIndex="1">
+  <ion-tab [root]="tab2Root" tabTitle="Info" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab1Root" [rootParams]="menuJSON" tabTitle="Menu" tabIcon="restaurant"></ion-tab>
+  <ion-tab [root]="tab3Root" [rootParams]="menuJSON" tabTitle="Edit" tabIcon="create"></ion-tab>
 </ion-tabs>

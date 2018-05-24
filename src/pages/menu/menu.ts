@@ -42,11 +42,14 @@ export class MenuPage{
                 console.log(this.itemKeys); 
                 var i = 0;
                 this.itemKeys.map(iKey =>{
+                    this.sec.items[iKey].photoKeys = [];
                     if(this.sec.items[iKey].photos != null){
                         this.allPhotos[i] = [];
-                        this.sec.items[iKey].photos.forEach(photo => {
-                            console.log(photo);
-                            this.allPhotos[i].push(photo.image);
+                        console.log(this.sec.items[iKey].photos);
+                        this.sec.items[iKey].photoKeys = Object.keys(this.sec.items[iKey].photos);
+                        this.sec.items[iKey].photoKeys.forEach(photoKey => {
+                            console.log(this.sec.items[iKey].photos[photoKey]);
+                            this.allPhotos[i].push(this.sec.items[iKey].photos[photoKey].image);
                         });
                         i++;
                     }
@@ -70,13 +73,11 @@ export class MenuPage{
         console.log(sectionKey);
         var data = {sectionJSON: this.params.get('menuJSON'), sectionKey: sectionKey};
         console.log(data)
-        // let modal = this.modalCtrl.create(ItemPage, data);
-        // modal.present();
         this.navCtrl.push(ItemPage,data);
     }
 
     dismiss(){
-        this.viewCtrl.dismiss();
+        this.navCtrl.pop();
     }
 }
 
