@@ -7,7 +7,7 @@ import {ItemPage} from '../item/item';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { PopoverController } from 'ionic-angular';
 import {PopoverPage} from '../PopoverPage/PopoverPage';
-
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-about',
@@ -28,6 +28,7 @@ export class AboutPage {
     public viewCtrl: ViewController,
     public afDb: AngularFireDatabase,
     public popoverCtrl: PopoverController,
+    private alertCtrl: AlertController,
     public modalCtrl: ModalController){
 
 
@@ -43,10 +44,12 @@ this.menuKeys.map(key =>{
     this.sectionsList.push(this.sec.section);
     console.log(this.sec.section);
     this.posts[key].keys = [];
-    Object.keys(this.posts[key].items).map(keyItem =>{
+    if('items' in this.posts[key]){
+      Object.keys(this.posts[key].items).map(keyItem =>{
         console.log("aaa", keyItem);
         this.posts[key].keys.push(keyItem);
-    });
+      });
+    }
 
 })
 
@@ -85,12 +88,53 @@ editItem(section, item){
   console.log(item);
   console.log(section);
   var ss = '/restaurants/'+this.restaurantKey+'/menu_with_photo/' + section + '/items/' + item;
-  console.log(ss);
-  console.log(this);
+  var item_data = this.posts[section].items[item];
+  console.log(item_data);
+  let alert = this.alertCtrl.create({
+    title: 'Edit',
+    inputs: [
+      {
+        name: 'title',
+        value: item_data.title
+      },
+      {
+        name: 'description',
+        value: item_data.description
+      },
+      {
+        name: 'price',
+        value: item_data.price
+      },
+      
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Save',
+        handler: data => {
+          var rand = Math.floor(Math.random()*16777215).toString(18);
+          var ss = '/restaurants/' + this.restaurantKey +'/menu_with_photo/' + section + '/items/' + item  ;
+          console.log(data);
+          console.log(this.afDb.object(ss));
+          
+          this.afDb.object(ss).set(data);
+        }
+      }
+    ]
+  });
+  alert.present();
+
+
 }
 
 presentPopover(myEvent,key) {
-  var data = {sectionKey: key, restaurantKey: this.restaurantKey};
+  var data = {sectionKey: key, restaurantKey: this.restaurantKey, section:this.posts[key]};
   console.log(data);
   let popover = this.popoverCtrl.create(PopoverPage, data);
   popover.present({

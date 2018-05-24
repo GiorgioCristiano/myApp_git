@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, ModalController, NavParams, ViewController, Platform } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 
-import { AboutPage } from '../about/about';
+import { AboutPage }   from '../about/about';
 import { ContactPage } from '../contact/contact';
-import {MenuPage} from '../menu/menu';
+import { MenuPage}     from '../menu/menu';
 
 @Component({
   templateUrl: 'restaurant.html'
