@@ -1,42 +1,60 @@
 page-item{
 
+
     .navBar{
         top: 56px;
+        height: 53px;
         background: #cce6ff;
+        z-index:3;
+
+        .scroll-content{
+            margin-bottom:0px !important;
+        }
+
         ion-scroll[scrollX] {
-            top: 10px;
+            top:10px;
+            height: 35px;
             white-space: nowrap;
         }
 
         .scroll-item {
-            border-radius: 10px;
-            border: 1.5px solid white;
+            border-radius: 5px;
+            background: #d9d9d9;
             padding-right: 10px;
             padding-left: 10px;
-            margin-left: 10px;
-            margin-right: 10px;
+            padding-top:6px;
+            padding-bottom: 6px;
+            margin-left: 2.5px;
+            margin-right: 2.5px;
             display: inline-block;
-            color: white;
+            color: #737373;
         }
         
         .scroll-item-active{
             
-            border-radius: 10px;
-            border: 1.5px solid #000000;
+            border-radius: 5px;
+            border: 0px solid #000000;
+            background: #bfbfbf;
             padding-right: 10px;
             padding-left: 10px;
-            margin-left: 10px;
-            margin-right: 10px;
+            padding-top:6px;
+            padding-bottom: 6px;
+            margin-left: 2.5px;
+            margin-right: 2.5px;
             display: inline-block;
             color: #000000;
         }
-        
+                
     }
 
 
     .itemPage{
 
-        top: 96px;
+        top: 98px;
+
+        .scroll-content{
+            margin-bottom: 156px !important;
+        }
 
         background: #cce6ff;
 
@@ -55,11 +73,14 @@ page-item{
         }
 
         .titleA{
-            width: 75%;
+            width: 75% !important;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden; 
             float: 'left'
         }
 
-        .price{ 
+        .price{
             float:right
         }
 

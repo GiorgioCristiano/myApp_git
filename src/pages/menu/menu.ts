@@ -14,7 +14,9 @@ export class MenuPage{
     posts: any;
     sectionsList: string[] = [];
     menuKeys: any;
+    itemKeys: any;
     sec: any;
+    allPhotos: any[][];
 
     constructor(public platform: Platform,
                 public params: NavParams,
@@ -26,13 +28,40 @@ export class MenuPage{
         console.log(this.posts);
 
         this.menuKeys = Object.keys(this.posts);
-
+        
         this.menuKeys.map(key =>{
             console.log(key);
             this.sec = this.posts[key];
             console.log(this.sec);
             this.sectionsList.push(this.sec.section);
             console.log(this.sec.section);
+            this.allPhotos = [];
+            if(this.sec.items != null){
+                this.itemKeys = Object.keys(this.sec.items);
+                this.sec.itemsNum = this.itemKeys.length;
+                console.log(this.itemKeys); 
+                var i = 0;
+                this.itemKeys.map(iKey =>{
+                    if(this.sec.items[iKey].photos != null){
+                        this.allPhotos[i] = [];
+                        this.sec.items[iKey].photos.forEach(photo => {
+                            console.log(photo);
+                            this.allPhotos[i].push(photo.image);
+                        });
+                        i++;
+                    }
+                })
+            }
+            console.log(this.allPhotos);
+            this.sec.photos = [];
+            for(var k = 0; k < 6; k++){
+                for(var j = i-1; j >= 0; j--){
+                    if(this.allPhotos[j][k] != null) this.sec.photos.push(this.allPhotos[j][k]);
+                }
+            }
+
+            console.log(this.posts);
+            console.log(this.sec.photos);
         })
         console.log(this.sectionsList);
     }

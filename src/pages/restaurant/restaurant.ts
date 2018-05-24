@@ -7,7 +7,7 @@ import { ContactPage } from '../contact/contact';
 import { MenuPage}     from '../menu/menu';
 
 @Component({
-  selector: 'page-restaurant'
+  selector: 'page-restaurant',
   templateUrl: 'restaurant.html'
 })
 export class RestaurantPage {

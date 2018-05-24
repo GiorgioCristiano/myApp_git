@@ -31,14 +31,21 @@ export class ItemPage {
 
         this.sectionKey = this.params.get("sectionKey");
         this.sectionJSON = this.params.get("sectionJSON");
-        this.sectionKeys = Object.keys(this.sectionJSON);
-        this.allItems = this.sectionJSON[this.sectionKey];
-        this.items = this.allItems.items;
-        this.itemKeys = Object.keys(this.items);
-        this.section = this.allItems.section;
+            this.sectionKeys = Object.keys(this.sectionJSON);
+            this.allItems = this.sectionJSON[this.sectionKey];
+            this.items = this.allItems.items;
+            console.log(this.items);
+        if(this.items != null){ 
+            this.itemKeys = Object.keys(this.items);
+            this.section = this.allItems.section;
+        }else{
+            this.allItems = null;
+            this.items = null;
+            this.itemKeys = null;
+            this.section = null;
+        }
         console.log(this.sectionKey);
         console.log(this.allItems);
-        this.actualScrollLeft = this.params.get("actualScrollLeft");
         console.log(this.actualScrollLeft);
 
     }
